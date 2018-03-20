@@ -3,4 +3,4 @@
 
 就是首次要下载2M缓存
 
-效果在这里:sorry.woooooody.com/
+效果在这里:<a href="sorry.woooooody.com">sorry.woooooody.com</a>
