@@ -1,5 +1,7 @@
 var loadCount = 0;
 var color = "rgb(255,255,255)";
+var blobData;
+var blobUrl;
 window.onload=function(){
 	// 加载img
 	var imagesString="";
@@ -65,6 +67,7 @@ function empty(){
 
 function create(){
 	document.getElementById("btn_create").disabled=true;
+	document.getElementById("download").innerHTML = "";
 	document.getElementById("tips").innerHTML = "生成中...";
 
 	var line1 = document.getElementById("line1").value;
@@ -118,13 +121,49 @@ function create(){
 				gif.addFrame(ctx,{delay:100});
 			};
 			gif.on('finished', function(blob) {
-				document.getElementById("btn_create").disabled=false;
-				var url = URL.createObjectURL(blob);
-				document.getElementById("result").src = url;
-				document.getElementById("tips").innerHTML = "<a href='"+url+"'>下载</a>";
+				blobData=blob;
+				blobUrl = URL.createObjectURL(blob);
+				document.getElementById("result").src = blobUrl;
+				var downloadA = document.getElementById("download");
+				downloadA.innerHTML = "下载";
+				document.getElementById("tips").innerHTML = "";
+				/*
+				var reader = new FileReader();
+				reader.readAsDataURL(blob);
+				reader.onloadend = function(){
+					document.getElementById("btn_create").disabled=false;
+					var base64data = reader.result;
+					//console.info(base64data)
+					var src = base64data.substring(22,base64data.length);
+					//console.info(src)
+					//var src = URL.createObjectURL(blob);
+					
+					document.getElementById("result").src = base64data;
+					document.getElementById("download").href = src;
+					document.getElementById("download").innerHTML = "下载";
+					document.getElementById("tips").innerHTML = "";
+				};
+				*/
+				
+				
+				
+				
 			});
 
 			gif.render();
 		};
 	},50);
 };
+
+function down(){
+	if(window.navigator.msSaveOrOpenBlob){
+		navigator.msSaveBlob(blob,"sorry.gif");
+	}else{
+		var link = document.createElement("a");
+        link.setAttribute("href", blobUrl);
+        link.setAttribute("download", "sorry.gif");
+
+        document.body.appendChild(link);
+        link.click();
+	}
+}
