@@ -1,0 +1,50 @@
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>在线sorry生成器 gif生成</title>
+<meta name="keywords" content="sorry生成器 gif生成 gif 有钱是真的可以为所欲为 为所欲为gif">
+<meta name="description" content="输入台词生成“有钱就可以为所欲为”的gif">
+<style>
+	.line{ width:250px;}
+	span { color:gray; }
+</style>
+</head>
+<body>
+<div id="images" style="display:none;"></div>
+<div id = "canvases" style="display:none;"></div>
+<h1>输入台词生成gif</h1>
+--------------------------------------------------------------<br/>
+<a href = "javascript:void(0);" title="sorry生成器 gif生成 gif 有钱是真的可以为所欲为 为所欲为gif" onclick="fill()">填入原词</a>&nbsp;<a href = "javascript:void(0);" title="sorry生成器 gif生成 gif 有钱是真的可以为所欲为 为所欲为gif" onclick="empty()">清空</a>
+<div>
+	第1句<input type="text" id = "line1" class = "line" autofocus/><span>好，我是一等良民就不说了</span><br/>
+	第2句<input type="text" id = "line2" class = "line" /><span>即使一定要冤枉我</span><br/>
+	第3句<input type="text" id = "line3" class = "line" /><span>我也有钱聘请大律师帮我</span><br/>
+	第4句<input type="text" id = "line4" class = "line" /><span>我想我也坐不了牢了</span><br/>
+	第5句<input type="text" id = "line5" class = "line" /><span>有钱就可以为所欲为啊？</span><br/>
+	第6句<input type="text" id = "line6" class = "line" /><span>sorry，有钱就是可以为所欲为</span><br/>
+	第7句<input type="text" id = "line7" class = "line" /><span>但我看他是领会不到我的意思</span><br/>
+	第8句<input type="text" id = "line8" class = "line" /><span>领会不到 领会不到</span><br/>
+</div>
+--------------------------------------------------------------<br/>
+文字颜色:
+<table>
+	<tr>
+		<td>
+			<p>红:<span>0</span><input type="range" id="red" min="0" max="255" value="255" onchange="changeColor();" /><span>255</span></p>
+			<p>绿:<span>0</span><input type="range" id="green" min="0" max="255" value="255" onchange="changeColor();" /><span>255</span></p>
+			<p>蓝:<span>0</span><input type="range" id="blue" min="0" max="255" value="255" onchange="changeColor();" /><span>255</span></p>
+		</td>
+		<td>
+			<canvas id='c_color' style='display:block;width:100px;height:100px;border:1px solid #d3d3d3;'></canvas>
+		</td>
+	</tr>
+</table>
+--------------------------------------------------------------<br/>
+<div>
+	<button id="btn_create" onclick="create()">生成GIF</button>生成后可键点击图片即可保存<br/>
+	<img id="result"><br/>
+</div>
+<script src="./gif.js"></script>
+<script src="./sorry.js"></script>
+</body>
+</html>
