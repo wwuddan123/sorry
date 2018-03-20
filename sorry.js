@@ -22,6 +22,14 @@ window.onload=function(){
 		};
 	};
 	changeColor();
+	var timer = window.setInterval(function(){
+		document.getElementById("tips").innerHTML = "加载中:"+loadCount+"/152";
+		if(loadCount == 152) {
+			window.clearInterval(timer);
+			document.getElementById("btn_create").disabled=false;
+			document.getElementById("tips").innerHTML = "加载完成";
+		}
+	},50);
 };
 function changeColor(){
 	var red = document.getElementById("red").value;
@@ -57,9 +65,7 @@ function empty(){
 
 function create(){
 	document.getElementById("btn_create").disabled=true;
-	window.setTimeout(function(){
-		document.getElementById("btn_create").disabled=false;
-	},3000); 
+	document.getElementById("tips").innerHTML = "生成中...";
 
 	var line1 = document.getElementById("line1").value;
 	var line2 = document.getElementById("line2").value;
@@ -112,7 +118,10 @@ function create(){
 				gif.addFrame(ctx,{delay:100});
 			};
 			gif.on('finished', function(blob) {
-				document.getElementById("result").src = URL.createObjectURL(blob);
+				document.getElementById("btn_create").disabled=false;
+				var url = URL.createObjectURL(blob);
+				document.getElementById("result").src = url;
+				document.getElementById("tips").innerHTML = "<a href='"+url+"'>下载</a>";
 			});
 
 			gif.render();

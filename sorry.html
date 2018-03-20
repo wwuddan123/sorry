@@ -8,23 +8,26 @@
 <style>
 	.line{ width:250px;}
 	span { color:gray; }
+	p{margin:5px;}
 </style>
 </head>
 <body>
 <div id="images" style="display:none;"></div>
 <div id = "canvases" style="display:none;"></div>
-<h1>输入台词生成gif</h1>
+<h3 style="margin-bottom:0">输入台词生成gif</h3>
 --------------------------------------------------<br/>
-<a href = "javascript:void(0);" title="sorry生成器 gif生成 gif 有钱是真的可以为所欲为 为所欲为gif" onclick="fill()">填入原词</a>&nbsp;<a href = "javascript:void(0);" title="sorry生成器 gif生成 gif 有钱是真的可以为所欲为 为所欲为gif" onclick="empty()">清空</a>
+<a href = "javascript:void(0);" title="sorry生成器 gif生成 gif 有钱是真的可以为所欲为 为所欲为gif" onclick="fill()">填入原词</a>&nbsp;
+<a href = "javascript:void(0);" title="sorry生成器 gif生成 gif 有钱是真的可以为所欲为 为所欲为gif" onclick="empty()">清空</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href = "https://github.com/wwuddan123/sorry" onclick="empty()">github</a>
 <div>
-	第1句<input type="text" id = "line1" class = "line" autofocus/><span>好，我是一等良民就不说了</span><br/>
-	第2句<input type="text" id = "line2" class = "line" /><span>即使一定要冤枉我</span><br/>
-	第3句<input type="text" id = "line3" class = "line" /><span>我也有钱聘请大律师帮我</span><br/>
-	第4句<input type="text" id = "line4" class = "line" /><span>我想我也坐不了牢了</span><br/>
-	第5句<input type="text" id = "line5" class = "line" /><span>有钱就可以为所欲为啊？</span><br/>
-	第6句<input type="text" id = "line6" class = "line" /><span>sorry，有钱就是可以为所欲为</span><br/>
-	第7句<input type="text" id = "line7" class = "line" /><span>但我看他是领会不到我的意思</span><br/>
-	第8句<input type="text" id = "line8" class = "line" /><span>领会不到 领会不到</span><br/>
+	第1句<input type="text" id = "line1" class = "line" placeholder="好，我是一等良民就不说了" autofocus/><br/>
+	第2句<input type="text" id = "line2" class = "line" placeholder="即使一定要冤枉我"/><br/>
+	第3句<input type="text" id = "line3" class = "line" placeholder="我也有钱聘请大律师帮我"/><br/>
+	第4句<input type="text" id = "line4" class = "line" placeholder="我想我也坐不了牢了"/><br/>
+	第5句<input type="text" id = "line5" class = "line" placeholder="有钱就可以为所欲为啊？"/><br/>
+	第6句<input type="text" id = "line6" class = "line" placeholder="sorry，有钱就是可以为所欲为"/><br/>
+	第7句<input type="text" id = "line7" class = "line" placeholder="但我看他是领会不到我的意思"/><br/>
+	第8句<input type="text" id = "line8" class = "line" placeholder="领会不到 领会不到"/>
 </div>
 --------------------------------------------------<br/>
 文字颜色:
@@ -42,7 +45,7 @@
 </table>
 --------------------------------------------------<br/>
 <div>
-	<button id="btn_create" onclick="create()">生成GIF</button>生成后可键点击图片即可保存<br/>
+	<button id="btn_create" disabled="true" onclick="create()" >生成GIF</button><label id = "tips" ></label><br/>
 	<img id="result"><br/>
 </div>
 <script src="./gif.js"></script>
