@@ -127,6 +127,7 @@ function create(){
 				var downloadA = document.getElementById("download");
 				downloadA.innerHTML = "下载";
 				document.getElementById("tips").innerHTML = "";
+				document.getElementById("btn_create").disabled=false;
 				/*
 				var reader = new FileReader();
 				reader.readAsDataURL(blob);
